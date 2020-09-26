@@ -18,7 +18,8 @@ end
 Then /I should see "(.*)" before "(.*)"/ do |e1, e2|
   #  ensure that that e1 occurs before e2.
   #  page.body is the entire content of the page as a string.
-  fail "Unimplemented"
+  # Regex: e1, followed by any # characters, followed by e2
+  expect(/#{e1}[\s\S]*#{e2}/).to match (page.body)
 end
 
 # Make it easier to express checking or unchecking several boxes at once
